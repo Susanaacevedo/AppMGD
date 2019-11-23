@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @campagna.nombre %>
+</p>
+
+<p>
+  <strong>Pagos:</strong>
+  <%= @campagna.pagos %>
+</p>
+
+<p>
+  <strong>Meta:</strong>
+  <%= @campagna.meta %>
+</p>
+
+<%= link_to 'Edit', edit_campagna_path(@campagna) %> |
+<%= link_to 'Back', campagnas_path %>
