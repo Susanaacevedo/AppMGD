@@ -1,0 +1,52 @@
+<%= form_with(model: metum, local: true) do |form| %>
+  <% if metum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(metum.errors.count, "error") %> prohibited this metum from being saved:</h2>
+
+      <ul>
+      <% metum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :metum_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecinicio %>
+    <%= form.date_select :fecinicio, id: :metum_fecinicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecfin %>
+    <%= form.date_select :fecfin, id: :metum_fecfin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantmeta %>
+    <%= form.number_field :cantmeta, id: :metum_cantmeta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :faltameta %>
+    <%= form.number_field :faltameta, id: :metum_faltameta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.check_box :estado, id: :metum_estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagos_id %>
+    <%= form.text_field :pagos_id, id: :metum_pagos_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

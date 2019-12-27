@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecpago: 2019-11-23
+  estado: false
+  tipentrega: 1
+  cantotal: 1
+  carros: one
+
+two:
+  fecpago: 2019-11-23
+  estado: false
+  tipentrega: 1
+  cantotal: 1
+  carros: two

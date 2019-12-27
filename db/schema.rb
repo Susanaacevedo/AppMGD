@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191116153855) do
+ActiveRecord::Schema.define(version: 20191123152924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campagnas", force: :cascade do |t|
+    t.string "nombre"
+    t.bigint "pagos_id"
+    t.bigint "meta_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meta_id"], name: "index_campagnas_on_meta_id"
+    t.index ["pagos_id"], name: "index_campagnas_on_pagos_id"
+  end
+
+  create_table "carros", force: :cascade do |t|
+    t.integer "total"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "estado"
+    t.index ["users_id"], name: "index_carros_on_users_id"
+  end
+
+  create_table "detcarros", force: :cascade do |t|
+    t.integer "cantidad"
+    t.bigint "carros_id"
+    t.bigint "productos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "precio"
+    t.index ["carros_id"], name: "index_detcarros_on_carros_id"
+    t.index ["productos_id"], name: "index_detcarros_on_productos_id"
+  end
+
+  create_table "meta", force: :cascade do |t|
+    t.string "descripcion"
+    t.date "fecinicio"
+    t.date "fecfin"
+    t.integer "cantmeta"
+    t.integer "faltameta"
+    t.boolean "estado"
+    t.bigint "pagos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pagos_id"], name: "index_meta_on_pagos_id"
+  end
+
+  create_table "pagos", force: :cascade do |t|
+    t.date "fecpago"
+    t.boolean "estado"
+    t.integer "tipentrega"
+    t.integer "cantotal"
+    t.bigint "carros_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carros_id"], name: "index_pagos_on_carros_id"
+  end
+
+  create_table "productos", force: :cascade do |t|
+    t.integer "codigo"
+    t.string "nombre"
+    t.integer "precio"
+    t.integer "stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,4 +97,11 @@ ActiveRecord::Schema.define(version: 20191116153855) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "campagnas", "meta", column: "meta_id"
+  add_foreign_key "campagnas", "pagos", column: "pagos_id"
+  add_foreign_key "carros", "users", column: "users_id"
+  add_foreign_key "detcarros", "carros", column: "carros_id"
+  add_foreign_key "detcarros", "productos", column: "productos_id"
+  add_foreign_key "meta", "pagos", column: "pagos_id"
+  add_foreign_key "pagos", "carros", column: "carros_id"
 end
