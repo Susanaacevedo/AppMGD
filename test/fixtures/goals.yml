@@ -2,18 +2,18 @@
 
 one:
   descripcion: MyString
-  fecinicio: 2019-11-23
-  fecfin: 2019-11-23
+  fecinicio: 2019-12-28
+  fecfin: 2019-12-28
   cantmeta: 1
   faltameta: 1
-  estado: false
+  estado: 1
   pagos: one
 
 two:
   descripcion: MyString
-  fecinicio: 2019-11-23
-  fecfin: 2019-11-23
+  fecinicio: 2019-12-28
+  fecfin: 2019-12-28
   cantmeta: 1
   faltameta: 1
-  estado: false
+  estado: 1
   pagos: two

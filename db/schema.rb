@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20191123152924) do
   create_table "campagnas", force: :cascade do |t|
     t.string "nombre"
     t.bigint "pagos_id"
-    t.bigint "meta_id"
+    t.bigint "goals_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meta_id"], name: "index_campagnas_on_meta_id"
+    t.index ["goals_id"], name: "index_campagnas_on_goals_id"
     t.index ["pagos_id"], name: "index_campagnas_on_pagos_id"
   end
 
@@ -45,17 +45,17 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.index ["productos_id"], name: "index_detcarros_on_productos_id"
   end
 
-  create_table "meta", force: :cascade do |t|
+  create_table "goals", force: :cascade do |t|
     t.string "descripcion"
     t.date "fecinicio"
     t.date "fecfin"
     t.integer "cantmeta"
     t.integer "faltameta"
-    t.boolean "estado"
+    t.integer "estado"
     t.bigint "pagos_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pagos_id"], name: "index_meta_on_pagos_id"
+    t.index ["pagos_id"], name: "index_goals_on_pagos_id"
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -97,11 +97,11 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "campagnas", "meta", column: "meta_id"
+  add_foreign_key "campagnas", "goals", column: "goals_id"
   add_foreign_key "campagnas", "pagos", column: "pagos_id"
   add_foreign_key "carros", "users", column: "users_id"
   add_foreign_key "detcarros", "carros", column: "carros_id"
   add_foreign_key "detcarros", "productos", column: "productos_id"
-  add_foreign_key "meta", "pagos", column: "pagos_id"
+  add_foreign_key "goals", "pagos", column: "pagos_id"
   add_foreign_key "pagos", "carros", column: "carros_id"
 end

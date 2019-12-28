@@ -1,0 +1,52 @@
+<%= form_with(model: goal, local: true) do |form| %>
+  <% if goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :goal_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecinicio %>
+    <%= form.date_select :fecinicio, id: :goal_fecinicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecfin %>
+    <%= form.date_select :fecfin, id: :goal_fecfin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantmeta %>
+    <%= form.number_field :cantmeta, id: :goal_cantmeta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :faltameta %>
+    <%= form.number_field :faltameta, id: :goal_faltameta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.number_field :estado, id: :goal_estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagos_id %>
+    <%= form.text_field :pagos_id, id: :goal_pagos_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
