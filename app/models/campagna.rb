@@ -1,4 +1,4 @@
 class Campagna < ApplicationRecord
-  belongs_to :pagos
+  belongs_to :pago
   belongs_to :meta
 end
