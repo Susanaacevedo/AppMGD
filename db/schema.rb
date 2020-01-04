@@ -10,39 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191123152924) do
+ActiveRecord::Schema.define(version: 20200104154640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "campagnas", force: :cascade do |t|
-    t.string "nombre"
-    t.bigint "pagos_id"
-    t.bigint "goals_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["goals_id"], name: "index_campagnas_on_goals_id"
-    t.index ["pagos_id"], name: "index_campagnas_on_pagos_id"
-  end
-
-  create_table "carros", force: :cascade do |t|
-    t.integer "total"
-    t.bigint "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "estado"
-    t.index ["users_id"], name: "index_carros_on_users_id"
-  end
-
   create_table "detcarros", force: :cascade do |t|
     t.integer "cantidad"
-    t.bigint "carros_id"
     t.bigint "productos_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "precio"
-    t.index ["carros_id"], name: "index_detcarros_on_carros_id"
+    t.bigint "users_id"
     t.index ["productos_id"], name: "index_detcarros_on_productos_id"
+    t.index ["users_id"], name: "index_detcarros_on_users_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -54,6 +35,8 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.integer "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -61,10 +44,8 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.boolean "estado"
     t.integer "tipentrega"
     t.integer "cantotal"
-    t.bigint "carros_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["carros_id"], name: "index_pagos_on_carros_id"
   end
 
   create_table "productos", force: :cascade do |t|
@@ -95,10 +76,7 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "campagnas", "goals", column: "goals_id"
-  add_foreign_key "campagnas", "pagos", column: "pagos_id"
-  add_foreign_key "carros", "users", column: "users_id"
-  add_foreign_key "detcarros", "carros", column: "carros_id"
   add_foreign_key "detcarros", "productos", column: "productos_id"
-  add_foreign_key "pagos", "carros", column: "carros_id"
+  add_foreign_key "detcarros", "users", column: "users_id"
+  add_foreign_key "goals", "users"
 end

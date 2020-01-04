@@ -1,2 +1,0 @@
-class Campagna < ApplicationRecord
-end

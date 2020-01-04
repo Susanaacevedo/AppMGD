@@ -22,15 +22,17 @@
             <li class="nav-item">
               <%= link_to 'Home', root_path%>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Productos', productos_path%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Metas', goals_path%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Ropa de Cama', goals_path%>
-            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Productos', productos_path%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Metas', goals_path%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Ropa de Cama', goals_path%>
+              </li>
+            <% end %>  
             <ul>
             <% if user_signed_in? %>
 
