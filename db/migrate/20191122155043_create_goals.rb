@@ -7,7 +7,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
       t.integer :cantmeta
       t.integer :faltameta
       t.integer :estado
-      t.references :pagos, foreign_key: true
+  
 
       t.timestamps
     end

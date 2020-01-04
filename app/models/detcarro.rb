@@ -1,4 +1,4 @@
 class Detcarro < ApplicationRecord
-  belongs_to :carros
-  belongs_to :productos
+  belongs_to   :user
+  belongs_to  :producto
 end

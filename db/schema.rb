@@ -52,10 +52,8 @@ ActiveRecord::Schema.define(version: 20191123152924) do
     t.integer "cantmeta"
     t.integer "faltameta"
     t.integer "estado"
-    t.bigint "pagos_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pagos_id"], name: "index_goals_on_pagos_id"
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -102,6 +100,5 @@ ActiveRecord::Schema.define(version: 20191123152924) do
   add_foreign_key "carros", "users", column: "users_id"
   add_foreign_key "detcarros", "carros", column: "carros_id"
   add_foreign_key "detcarros", "productos", column: "productos_id"
-  add_foreign_key "goals", "pagos", column: "pagos_id"
   add_foreign_key "pagos", "carros", column: "carros_id"
 end

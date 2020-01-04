@@ -69,6 +69,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:descripcion, :fecinicio, :fecfin, :cantmeta, :faltameta, :estado, :pagos_id)
+      params.require(:goal).permit(:descripcion, :fecinicio, :fecfin, :cantmeta, :faltameta, :estado)
     end
 end
