@@ -1,0 +1,2 @@
+class DetcarrosController < ApplicationController
+end
