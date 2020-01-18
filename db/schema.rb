@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200104154640) do
+ActiveRecord::Schema.define(version: 20200117223503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "detcarros", force: :cascade do |t|
     t.integer "cantidad"
-    t.bigint "productos_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "precio"
-    t.bigint "users_id"
-    t.index ["productos_id"], name: "index_detcarros_on_productos_id"
-    t.index ["users_id"], name: "index_detcarros_on_users_id"
+    t.bigint "user_id"
+    t.bigint "producto_id"
+    t.index ["producto_id"], name: "index_detcarros_on_producto_id"
+    t.index ["user_id"], name: "index_detcarros_on_user_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20200104154640) do
     t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,7 +77,7 @@ ActiveRecord::Schema.define(version: 20200104154640) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "detcarros", "productos", column: "productos_id"
-  add_foreign_key "detcarros", "users", column: "users_id"
+  add_foreign_key "detcarros", "productos"
+  add_foreign_key "detcarros", "users"
   add_foreign_key "goals", "users"
 end

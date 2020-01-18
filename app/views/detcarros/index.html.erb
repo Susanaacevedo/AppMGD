@@ -1,0 +1,27 @@
+<h1>carro compra</h1>
+<table class="table">
+  <% @detcarros.each do |detalle| %>
+  <tr>
+  <td>
+ <%= detalle.producto.nombre%>
+ <%= detalle.producto.precio%>
+    <%= image_tag detalle.producto.photo, class: 'img-responsive'  %>
+ <%= detalle.cantidad%>
+  </td>
+  </tr>>
+  <% end %>
+<tr>
+  <td> total:  </td>
+  <td>
+      <%= @detcarros.map {|detalle|
+          detalle.producto.precio}.sum
+      %>
+
+  </td>
+
+</tr>
+
+
+</table>
+
+<button type="button" class="btn btn-outline-warning">Pagar</button>

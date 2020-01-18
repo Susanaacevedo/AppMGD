@@ -30,6 +30,10 @@
     <%= form.label :stock %>
     <%= form.number_field :stock, id: :producto_stock %>
   </div>
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+   </div>
 
   <div class="actions">
     <%= form.submit %>

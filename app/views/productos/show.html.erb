@@ -15,6 +15,12 @@
   <%= @producto.precio %>
 </p>
 
+<p>
+  <strong>Foto:</strong>
+  <%= image_tag @producto.photo %>
+</p>
+
+
 
 
 <%= link_to 'Edit', edit_producto_path(@producto) %> |

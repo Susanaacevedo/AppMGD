@@ -1,4 +1,5 @@
 class Producto < ApplicationRecord
-has_many  :Detcarros
-has_many :users, through: :Detcarros
+mount_uploader :photo, ImageUploader  
+has_many  :detcarros
+has_many :users, through: :detcarros
 end
