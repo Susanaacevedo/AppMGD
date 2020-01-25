@@ -1,24 +1,22 @@
-<h1>Home#index</h1>
 
 
-<div class="container">
-  <div class="row">
-    <% @productos.each_slice(4) do |row| %>
-      <% row.each do |product| %>
-        <div class="col-3">
-          <div class="card">
-            <div class="card-body">
-              <h5> <%= product.nombre %> </h5>
-              <p> <%= product.precio %> </p>
-              <p> <%= image_tag product.photo %> </p>
-<%= link_to "Agregar al Carro", producto_detcarros_path(product),
-class: 'btn btn-warning', method: :post%>
-
-
-         </div>
+      <div class="container">
+        <div class="row">
+          <% @productos.each_slice(4) do |row| %>
+            <% row.each do |product| %>
+              <div class="col-4">
+                <div class="card">
+                  <img src="<%=  (product.photo)%>" alt="" class="foto">
+                  <div class="card-body">
+                    <h5> <%= product.nombre %> </h5>
+                    <p> <%= product.precio %> </p>
+                    <%= link_to "Agregar al Carro", producto_detcarros_path(product),
+                    class: 'btn btn-warning', method: :post%>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="w-100" style="margin-top:20px;"> </div>
+          <% end %>
         </div>
-      <% end %>
-      <div class="w-100" style="margin-top:20px;"> </div>
-    <% end %>
-  </div>
-</div>
+      </div>

@@ -5,7 +5,8 @@
   <td>
  <%= detalle.producto.nombre%>
  <%= detalle.producto.precio%>
-    <%= image_tag detalle.producto.photo, class: 'img-responsive'  %>
+
+      <img src="<%=  (detalle.producto.photo)%>" alt="" class="foto">
  <%= detalle.cantidad%>
   </td>
   </tr>>
@@ -24,4 +25,4 @@
 
 </table>
 
-<button type="button" class="btn btn-outline-warning">Pagar</button>
+<button type="button" class="btn btn-warning">Pagar</button>

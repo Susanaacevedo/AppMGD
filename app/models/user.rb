@@ -8,4 +8,11 @@ has_many :products, through: :detcarros
 
 
 has_many  :goals
+
+  after_initialize do
+      if self.new_record?
+        self.role ||= :visit
+      end
+  end
+  enum role: [:visit, :admin]
 end

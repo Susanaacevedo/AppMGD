@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.foto{
+  height: 100px;
+  object-fit: cover;
+}
+.sinstyle a{
+  text-decoration: none;
+}
+.sinstyle a:hover{
+  background-color: white;
+  color: black;
+}
