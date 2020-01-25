@@ -10,18 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200117223503) do
+ActiveRecord::Schema.define(version: 20200125044204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "billings", force: :cascade do |t|
+    t.string "code"
+    t.string "payment_method"
+    t.decimal "amount", precision: 10, scale: 1
+    t.string "currency"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_billings_on_user_id"
+  end
 
   create_table "detcarros", force: :cascade do |t|
     t.integer "cantidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "precio"
+    t.integer "precio"
     t.bigint "user_id"
     t.bigint "producto_id"
+    t.boolean "payed"
+    t.bigint "billing_id"
+    t.index ["billing_id"], name: "index_detcarros_on_billing_id"
     t.index ["producto_id"], name: "index_detcarros_on_producto_id"
     t.index ["user_id"], name: "index_detcarros_on_user_id"
   end
@@ -77,6 +91,8 @@ ActiveRecord::Schema.define(version: 20200117223503) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "billings", "users"
+  add_foreign_key "detcarros", "billings"
   add_foreign_key "detcarros", "productos"
   add_foreign_key "detcarros", "users"
   add_foreign_key "goals", "users"

@@ -13,6 +13,7 @@ def create
   @detcarro.user     = current_user
   @detcarro.cantidad     = 1
   @detcarro.precio       = @producto.precio
+  @detcarro.payed = "false"
 
 
   if @detcarro.save
