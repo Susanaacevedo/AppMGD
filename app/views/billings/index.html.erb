@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Total</h1>
+  <% @billings.each do |billing| %>
+    <p><%= billing.amount  %></p>
+    <hr>
+    <h3>Nombre de los productos</h3>
+    <% billing.detcarros.each do |order| %>
+      <%= order.producto.nombre %>
+    <% end %>
+  <% end %>
+</div>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 has_many  :detcarros
 has_many :products, through: :detcarros
-
+has_many :billings
 
 has_many  :goals
 

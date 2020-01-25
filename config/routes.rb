@@ -14,8 +14,14 @@ Rails.application.routes.draw do
   resources :billings, only: [:index] do
     collection do
       get 'pre_pay'
-    #  get 'execute'
+      get 'execute'
     end
+  end
+
+  resources :detcarros, only: :index do
+  	collection do
+  		get 'clean'
+  	end
   end
 
   devise_for :users
