@@ -24,3 +24,160 @@
   background-color: white;
   color: black;
 }
+.wrap{
+   width: 1250px;
+   margin: 0px auto;
+ }
+.card img{
+   width: 100%;
+   height: 250px;
+   object-fit: cover;
+ }
+.clearfix{
+  float: none;
+  clear: both;
+}
+#footer{
+  width: 100%;
+  height: 470px;
+  background: #ffc107;
+  color: white;
+  overflow: hidden;
+}
+#footer .wrap > div{
+  float: left;
+  width: 320px;
+  height: 370px;
+  margin: 40px;
+  text-align: center;
+  color: white;
+
+}
+#footer a{
+  text-decoration: none;
+  color: #37BCF9;
+  transition: all 300ms;
+}
+#footer h5{
+  display: block;
+  background: white;
+  height: 50px;
+  letter-spacing: 2px;
+  text-align: center;
+
+  font-size: 40px;
+  line-height: 55px;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+#footer ul{
+  text-align: left;
+  margin: 20px;
+  font-size: 25px;
+}
+#footer ul li{
+  margin-top: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+#footer ul li  a{
+  display: block;
+  height: 40px;
+  transition: all 300ms;
+}
+#footer ul li:hover  a{
+  padding-left: 40px;
+  color: white;
+  width: 100%;
+}
+#footer iframe{
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 5px solid white;
+  box-shadow: 0px 0px 5px gray;
+}
+#footer img{
+    margin-bottom: 15px;
+}
+#footer #browsers img{
+  width: 45px;
+}
+#footer .grande{
+  font-size: 24px;
+}
+
+.registro{
+  width: 70%;
+  margin: 10px;
+  margin:0px auto;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to bottom, rgb(173, 118, 10) 0%, rgb(255, 197, 84));
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
+}
+.registro h2{
+  padding: 20px;
+  font-weight: bold;
+  font-style: italic;
+}
+.registro a{
+  text-decoration: none;
+  color:white;
+}
+.registro a:hover{
+  color:#ccc;
+}
+.registro label{
+  display: block;
+}
+.registro input[type="text"],
+.registro input[type="email"],
+.registro input[type="password"],
+.registro select{
+  border: 1px solid #C9C9C9;
+  box-shadow: 0px 0px 2px #ccc inset;
+  padding: 1px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: gray;
+  transition: all 300ms;
+}
+.registro input[type="text"]:focus,
+.registro input[type="email"]:focus,
+.registro input[type="password"]:focus,
+.registro select:focus{
+  border: 3px solid rgb(128, 92, 45);
+  color: black;
+}
+.registro input[type="button"],
+.registro input[type="submit"],
+.registro input[type="reset"],
+.registro button{
+  display: block;
+  border-radius: 2px;
+  width: 140px;
+  padding: 3px;
+  background: linear-gradient(to bottom, rgb(226, 157, 25) 0%, rgb(170, 116, 13));
+  border: 1px solid orange;
+  cursor: pointer;
+  color: white;
+}
+.registro input[type="button"]:hover,
+.registro input[type="submit"]:hover,
+.registro input[type="reset"]:hover,
+.registro button:hover{
+  box-shadow: 0px 0px 3px grey;
+}
+.registro input[type="button"]:active,
+.registro input[type="submit"]:active,
+.registro input[type="reset"]:active,
+.registro button:active{
+  box-shadow: 0px 0px 3px grey inset;
+  text-shadow: 0px 0px 1px #ccc;
+}
+.registro input[type="submit"]{
+  margin: 0px auto;
+}

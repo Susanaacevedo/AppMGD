@@ -1,27 +1,30 @@
-<h1>carro compra</h1>
 <table class="table">
-  <% @detcarros.each do |detalle| %>
+<thead>
   <tr>
-  <td>
- <%= detalle.producto.nombre%>
- <%= detalle.producto.precio%>
-
-      <img src="<%=  (detalle.producto.photo)%>" alt="" class="foto">
- <%= detalle.cantidad%>
-  </td>
+    <h6>
+    <th>Producto</th>
+    <th>Valor</th>
+    <th>Cantidad</th>
+    <th>Subtotal</th>
+    </h6>
   </tr>
+</thead>
+<tbody>
+  <% @detcarros.each do |order| %>
+    <tr>
+      <td> <%= order.producto.nombre %> </td>
+      <td> <%= order.precio %></td>
+      <td> <%= order.cantidad %> </td>
+      <td> <%= order.precio * order.cantidad %></td>
+    </tr>
   <% end %>
-<tr>
-  <td> total:  </td>
-  <td>
-      <%= @detcarros.map {|detalle|  detalle.producto.precio}.sum      %>
-
-  </td>
-
-</tr>
-
-
+  <tr class="table-dark">
+  <td></td>
+  <td></td>
+  <td><strong>Total de la compra:</strong></td>
+  <td><strong><%= @total %></strong></td>
+  </tr>
+</tbody>
 </table>
-
 <%= link_to 'Limpiar carro', clean_detcarros_path, class: 'btn btn-outline-danger'  %>
-<%= link_to 'Confirmar Compra', pre_pay_billings_path, class: 'btn btn-success float-right'  %>
+<%= link_to 'Confirmar Compra', pre_pay_billings_path, class: 'btn btn-success float-right' %>

@@ -1,17 +1,18 @@
 
 
-      <div class="container">
-        <div class="row">
+      <div class="container p-3">
+        <div class="row"">
           <% @productos.each_slice(4) do |row| %>
             <% row.each do |product| %>
-              <div class="col-4">
-                <div class="card">
-                  <img src="<%=  (product.photo)%>" alt="" class="foto">
+              <div class="col-12 col-md-6 col-lg-3 p-1">
+                <div class="card border-primary mb-2" style="max-width: 18rem;">
+                  <img src="<%=  (product.photo)%>" alt="" class="card-img-top">
+
                   <div class="card-body">
                     <h5> <%= product.nombre %> </h5>
-                    <p> <%= product.precio %> </p>
+                    <p> Precio :<%= product.precio %> </p>
                     <%= link_to "Agregar al Carro", producto_detcarros_path(product),
-                    class: 'btn btn-warning', method: :post%>
+                    class: 'btn btn-success', method: :post%>
                   </div>
                 </div>
               </div>
@@ -19,4 +20,4 @@
             <div class="w-100" style="margin-top:20px;"> </div>
           <% end %>
         </div>
-      </div>
+      </div
