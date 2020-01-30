@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require_tree .
  *= require_self
  */
@@ -180,4 +181,43 @@
 }
 .registro input[type="submit"]{
   margin: 0px auto;
+}
+
+#show > p > strong{
+  display: block;
+}
+#show a{
+  text-decoration: none;
+  color: black;
+}
+#show a:hover{
+  color: white;
+  font-size: 20px;
+}
+#show{
+  box-shadow: 0px 0px 5px gray;
+  background-color: #ccc;
+  text-align: center;
+  width: 45%;
+  margin-left: 28%;
+  font-size: 20px;
+}
+
+#show img{
+   width: 75%;
+   height: 250px;
+   object-fit: cover;
+ }
+ .card{
+  background: linear-gradient(to bottom, rgb(255, 197, 84) 0%, rgb(173, 118, 10));
+  color: white;
+ }
+.card p{
+  font-size: 18px;
+}
+.card h5{
+  font-weight: ;
+}
+.card a{
+  color: white;
 }

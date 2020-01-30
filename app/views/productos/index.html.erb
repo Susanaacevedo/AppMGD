@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <h5>Productos</h5>
+<div class="table-responsive">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Precio</th>
-      <th>Imagen</th>
-      <th>Opciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @productos.each do |producto| %>
+  <table  id="myTable" class="table" border="1">
+    <thead>
       <tr>
-        <td><%= producto.codigo %></td>
-        <td><%= producto.nombre %></td>
-        <td><%= producto.precio %></td>
-        <td><%= image_tag producto.photo, size: "64x64" , class: 'img-responsive'  %></td>
-
-        <td><%= link_to 'Show', producto %>
-        <%= link_to 'Edit', edit_producto_path(producto) %>
-        <%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Opciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @productos.each do |producto| %>
+        <tr>
+          <td><%= producto.codigo %></td>
+          <td><%= producto.nombre %></td>
+          <td><%= producto.precio %></td>
+          <td><%= image_tag producto.photo, size: "64x64" , class: 'img-responsive'  %></td>
+
+          <td><%= link_to 'Show', producto %>
+          <%= link_to 'Edit', edit_producto_path(producto) %>
+          <%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <%= link_to 'Nuevo Producto', new_producto_path %>
+</div>
