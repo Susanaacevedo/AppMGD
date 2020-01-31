@@ -46,6 +46,16 @@
   </head>
 
   <body>
+    <% if notice.present?%>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert.present?%>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
 
     <%= render 'layouts/nav'%>
     <div class="" style="margin-top: 69px; min-height: calc( 100vh - 142px)">
