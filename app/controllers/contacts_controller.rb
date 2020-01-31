@@ -6,7 +6,11 @@ class ContactsController < ApplicationController
   def index
       authenticate_user!
       if current_user.admin?
-        @contacts = Contact.all
+        if params[:q].present?
+          @contacts = Contact.where('email like ?', "%#{params[:q]}%")
+        else
+          @contacts = Contact.all
+        end
       else
         redirect_to root_path, notice: 'No tiene permisos para ver los mensajes.'
       end

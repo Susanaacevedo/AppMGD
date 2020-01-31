@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h5>Contactos</h5>
+
+<form action="<%= contacts_path %>" >
+  <input name="q">
+</form>
+<div id="contacts">
+
 <div class="table-responsive">
   <table class="table" border="1">
     <thead>
@@ -15,22 +21,33 @@
     </thead>
 
     <tbody>
-      <% @contacts.each do |contact| %>
-        <tr>
-          <td><%= contact.name %></td>
-          <td><%= contact.email %></td>
-          <td><%= contact.phone %></td>
-          <td><%= contact.subject %></td>
-          <td><%= contact.mensagge %></td>
-          <td><%= link_to 'Show', contact %></td>
-          <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
-        </tr>
-      <% end %>
+      <%= render @contacts %>
     </tbody>
   </table>
+</div>
+</div>
 
   <br>
+  <script>
+    $("[name=q]").keyup(function(event){
+      $.ajax({
+        url: '<%= contacts_path %>',
+        type: 'GET',
+        dataType: 'script',
+        data: {q: $(this).val()}
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+    });
+  </script>
+
 
   <%= link_to 'Nuevo Contacto', new_contact_path, class: 'btn btn-success float-right' %>
 </div>
