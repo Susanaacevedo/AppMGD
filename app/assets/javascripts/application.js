@@ -16,4 +16,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= stub "active_admin"
 // Material Select Initialization

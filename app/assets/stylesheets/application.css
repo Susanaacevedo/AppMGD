@@ -13,7 +13,22 @@
  *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require_tree .
  *= require_self
+ *= stub "active_admin"
  */
+
+ body{
+   margin: 0px;
+   font-family: 'Karla', sans-serif;
+ }
+ p{
+   font-family: 'Karla', sans-serif;
+ }
+ a{
+   font-family: 'Karla', sans-serif;
+ }
+ h1, h2, h3, h4, h5, h6{
+   font-family: 'Open Sans', sans-serif;
+ }
 .foto{
   height: 100px;
   object-fit: cover;
@@ -25,6 +40,24 @@
   background-color: white;
   color: black;
 }
+
+.bgnav{
+  background-color: #ffc107;
+  color: white;
+}
+.bgnav a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: all 300ms;
+}
+.bgnav a:hover{
+  background-color: #ffc107;
+  font-size: 17px;
+  color: white;
+}
+
+
 .wrap{
    width: 1250px;
    margin: 0px auto;
@@ -40,14 +73,14 @@
 }
 #footer{
   width: 100%;
-  height: 470px;
+  height: 370px;
   background: #ffc107;
   color: white;
   overflow: hidden;
 }
 #footer .wrap > div{
   float: left;
-  width: 320px;
+  width: 520px;
   height: 370px;
   margin: 40px;
   text-align: center;
@@ -109,16 +142,35 @@
 #footer .grande{
   font-size: 24px;
 }
+#footer ul li a {
+  color: white;
+}
+
+#footer ul li a:hover {
+  text-decoration: none;
+  background-color: #ffc107;
+}
 
 .registro{
   width: 70%;
   margin: 10px;
   margin:0px auto;
+  padding-bottom: 10px;
   text-align: center;
   color: white;
   background: linear-gradient(to bottom, rgb(173, 118, 10) 0%, rgb(255, 197, 84));
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
 }
+.registro a{
+  text-decoration: none !important;
+  background-color: transparent;
+}
+.registro a:hover{
+  text-decoration: none !important;
+  background-color: transparent;
+  color:white;
+}
+
 .registro h2{
   padding: 20px;
   font-weight: bold;
@@ -181,8 +233,11 @@
 }
 .registro input[type="submit"]{
   margin: 0px auto;
+  width: 208px;
 }
-
+.registro a:last-child{
+  padding-bottom: 10px;
+}
 #show > p > strong{
   display: block;
 }
@@ -220,4 +275,90 @@
 }
 .card a{
   color: white;
+}
+
+
+/* Responsive */
+@media (max-width:1250px) {
+   .wrap{
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  #footer .wrap > div{
+    width: 40%;
+  }
+  #footer #browsers img{
+    width: 14%;
+  }
+  #footer h5{
+    font-size: 30px;
+  }
+}
+@media (max-width:984px) {
+  #footer .wrap > div{
+    width: 38%;
+    margin: 20px;
+  }
+  #footer h5{
+    font-size: 22px;
+  }
+}
+
+@media (max-width:799px) {
+
+  #footer img{
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:673px) {
+
+  #footer{
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+  }
+  #footer .wrap > div{
+    width: 51%;
+    margin: 0px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #footer h5{
+    font-size: 25px;
+  }
+}
+ @media (max-width:580px) {
+   .col-12{
+       padding-left: 65px !important;
+
+   }
+  #footer{
+    width: 100%;
+    height: 688px;
+    padding-bottom: 40px;
+  }
+  #footer .wrap > div{
+    width: 51%;
+    height: 256px;
+    margin: 0px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #footer h5{
+    font-size: 25px;
+    width: 65%;
+  }
+  #footer p{
+    font-size: 25px;
+    width: 65%;
+  }
+  .wrap{
+    width: 301%;
+  }
+  #footer div{
+    height: auto;
+  }
 }

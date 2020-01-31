@@ -4,7 +4,12 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
+    authenticate_user!
+    if current_user.admin?
+      @productos = Producto.all
+    else
+      redirect_to root_path, notice: 'No tiene permisos para ver los mensajes.'
+    end
   end
 
   # GET /productos/1
@@ -14,7 +19,12 @@ class ProductosController < ApplicationController
 
   # GET /productos/new
   def new
-    @producto = Producto.new
+    authenticate_user!
+    if current_user.admin?
+      @producto = Producto.new
+    else
+      redirect_to root_path, notice: 'No tiene permisos para ver los mensajes.'
+    end
   end
 
   # GET /productos/1/edit
