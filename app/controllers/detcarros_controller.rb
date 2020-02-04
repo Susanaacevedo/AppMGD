@@ -5,6 +5,7 @@ def index
   @total = @detcarros.pluck("precio * cantidad").sum
 end
 
+# crea  carro
 def create
 
   @producto = Producto.find(params[:producto_id])
@@ -23,7 +24,7 @@ def create
   end
 end
 
-
+# limpia carro
 def clean
   @detcarros = Detcarro.where(user: current_user, payed: false)
   @detcarros.destroy_all

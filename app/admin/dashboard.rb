@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
                 li link_to(prod.nombre, admin_producto_path(prod))
               end
             end
-            li "Paciente totales #{Producto.count}"
+            li "Productos totales #{Producto.count}"
           end
         end
   end # content

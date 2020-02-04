@@ -5,6 +5,8 @@ class BillingsController < ApplicationController
     @billings = current_user.billings
   end
 
+# metodo obtengo el total de carro lo sumo genero un hash en donde
+# paso los atribtuos que son necesarios para has de paypal
 
   def pre_pay
     detcarros = current_user.detcarros.where(payed: false)
@@ -19,7 +21,8 @@ class BillingsController < ApplicationController
       item
   end
 
-
+# este es el hash que se envia a PayPal donde esta el total
+#
   @payment = PayPal::SDK::REST::Payment.new({
   :intent =>  "sale",
   :payer =>  {
@@ -44,6 +47,7 @@ class BillingsController < ApplicationController
     end
   end
 
+# es la respuesta de PayPal
     def execute
       paypal_payment = PayPal::SDK::REST::Payment.find(params[:paymentId])
       if paypal_payment.execute(payer_id: params[:PayerID])
